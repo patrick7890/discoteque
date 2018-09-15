@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-09-2018 16:46:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dto.Producto" table="producto" catalog="discoteque" optimistic-lock="version">
+        <id name="idproducto" type="int">
+            <column name="idproducto" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tipoproducto" class="dto.Tipoproducto" fetch="select">
+            <column name="tipoProducto_idtipoProducto" not-null="true" />
+        </many-to-one>
+        <property name="nombreProducto" type="string">
+            <column name="nombreProducto" length="45" not-null="true" />
+        </property>
+        <property name="precio" type="int">
+            <column name="precio" not-null="true" />
+        </property>
+        <property name="stock" type="int">
+            <column name="stock" not-null="true" />
+        </property>
+        <set name="comandaProductos" table="comanda_producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="producto_idproducto" not-null="true" />
+            </key>
+            <one-to-many class="dto.ComandaProducto" />
+        </set>
+    </class>
+</hibernate-mapping>

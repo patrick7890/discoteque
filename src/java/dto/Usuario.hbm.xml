@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-09-2018 16:46:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dto.Usuario" table="usuario" catalog="discoteque" optimistic-lock="version">
+        <id name="idusuario" type="int">
+            <column name="idusuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tipousuario" class="dto.Tipousuario" fetch="select">
+            <column name="tipoUsuario_idtipoUsuario" not-null="true" />
+        </many-to-one>
+        <property name="nombreusuario" type="string">
+            <column name="nombreusuario" length="45" not-null="true" />
+        </property>
+        <property name="passusuario" type="string">
+            <column name="passusuario" length="45" not-null="true" />
+        </property>
+        <property name="cuentausuario" type="string">
+            <column name="cuentausuario" length="45" not-null="true" />
+        </property>
+        <set name="atencions" table="atencion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuario_idusuario" not-null="true" />
+            </key>
+            <one-to-many class="dto.Atencion" />
+        </set>
+    </class>
+</hibernate-mapping>

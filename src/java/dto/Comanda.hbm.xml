@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-09-2018 16:46:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dto.Comanda" table="comanda" catalog="discoteque" optimistic-lock="version">
+        <id name="idcomanda" type="int">
+            <column name="idcomanda" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="atencion" class="dto.Atencion" fetch="select">
+            <column name="atencion_idatencion" not-null="true" />
+        </many-to-one>
+        <property name="totalcomanda" type="int">
+            <column name="totalcomanda" not-null="true" />
+        </property>
+        <set name="comandaProductos" table="comanda_producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="comanda_idcomanda" not-null="true" />
+            </key>
+            <one-to-many class="dto.ComandaProducto" />
+        </set>
+    </class>
+</hibernate-mapping>

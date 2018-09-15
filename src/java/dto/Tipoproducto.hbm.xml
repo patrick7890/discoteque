@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-09-2018 16:46:44 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dto.Tipoproducto" table="tipoproducto" catalog="discoteque" optimistic-lock="version">
+        <id name="idtipoProducto" type="int">
+            <column name="idtipoProducto" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="subtipoproducto" class="dto.Subtipoproducto" fetch="select">
+            <column name="subTipoProducto_idsubTipoProducto" not-null="true" />
+        </many-to-one>
+        <property name="descripcionTipoP" type="string">
+            <column name="descripcionTipoP" length="45" not-null="true" />
+        </property>
+        <set name="productos" table="producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoProducto_idtipoProducto" not-null="true" />
+            </key>
+            <one-to-many class="dto.Producto" />
+        </set>
+    </class>
+</hibernate-mapping>
