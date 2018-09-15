@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:22:47 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Comanda  implements java.io.Serializable {
 
 
-     private int idcomanda;
+     private Integer idcomanda;
      private Atencion atencion;
      private int totalcomanda;
      private Set<ComandaProducto> comandaProductos = new HashSet<ComandaProducto>(0);
@@ -20,23 +20,21 @@ public class Comanda  implements java.io.Serializable {
     }
 
 	
-    public Comanda(int idcomanda, Atencion atencion, int totalcomanda) {
-        this.idcomanda = idcomanda;
+    public Comanda(Atencion atencion, int totalcomanda) {
         this.atencion = atencion;
         this.totalcomanda = totalcomanda;
     }
-    public Comanda(int idcomanda, Atencion atencion, int totalcomanda, Set<ComandaProducto> comandaProductos) {
-       this.idcomanda = idcomanda;
+    public Comanda(Atencion atencion, int totalcomanda, Set<ComandaProducto> comandaProductos) {
        this.atencion = atencion;
        this.totalcomanda = totalcomanda;
        this.comandaProductos = comandaProductos;
     }
    
-    public int getIdcomanda() {
+    public Integer getIdcomanda() {
         return this.idcomanda;
     }
     
-    public void setIdcomanda(int idcomanda) {
+    public void setIdcomanda(Integer idcomanda) {
         this.idcomanda = idcomanda;
     }
     public Atencion getAtencion() {

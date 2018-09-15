@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:22:47 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Subtipoproducto  implements java.io.Serializable {
 
 
-     private int idsubTipoProducto;
+     private Integer idsubTipoProducto;
      private Tipoproducto tipoproducto;
      private String descripcionsubTipo;
      private Set<Producto> productos = new HashSet<Producto>(0);
@@ -20,23 +20,21 @@ public class Subtipoproducto  implements java.io.Serializable {
     }
 
 	
-    public Subtipoproducto(int idsubTipoProducto, Tipoproducto tipoproducto, String descripcionsubTipo) {
-        this.idsubTipoProducto = idsubTipoProducto;
+    public Subtipoproducto(Tipoproducto tipoproducto, String descripcionsubTipo) {
         this.tipoproducto = tipoproducto;
         this.descripcionsubTipo = descripcionsubTipo;
     }
-    public Subtipoproducto(int idsubTipoProducto, Tipoproducto tipoproducto, String descripcionsubTipo, Set<Producto> productos) {
-       this.idsubTipoProducto = idsubTipoProducto;
+    public Subtipoproducto(Tipoproducto tipoproducto, String descripcionsubTipo, Set<Producto> productos) {
        this.tipoproducto = tipoproducto;
        this.descripcionsubTipo = descripcionsubTipo;
        this.productos = productos;
     }
    
-    public int getIdsubTipoProducto() {
+    public Integer getIdsubTipoProducto() {
         return this.idsubTipoProducto;
     }
     
-    public void setIdsubTipoProducto(int idsubTipoProducto) {
+    public void setIdsubTipoProducto(Integer idsubTipoProducto) {
         this.idsubTipoProducto = idsubTipoProducto;
     }
     public Tipoproducto getTipoproducto() {

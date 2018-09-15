@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:22:47 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Atencion  implements java.io.Serializable {
 
 
-     private int idatencion;
+     private Integer idatencion;
      private Usuario usuario;
      private int totalatencion;
      private int mesa;
@@ -22,15 +22,13 @@ public class Atencion  implements java.io.Serializable {
     }
 
 	
-    public Atencion(int idatencion, Usuario usuario, int totalatencion, int mesa, byte faturada) {
-        this.idatencion = idatencion;
+    public Atencion(Usuario usuario, int totalatencion, int mesa, byte faturada) {
         this.usuario = usuario;
         this.totalatencion = totalatencion;
         this.mesa = mesa;
         this.faturada = faturada;
     }
-    public Atencion(int idatencion, Usuario usuario, int totalatencion, int mesa, byte faturada, Set<Comanda> comandas) {
-       this.idatencion = idatencion;
+    public Atencion(Usuario usuario, int totalatencion, int mesa, byte faturada, Set<Comanda> comandas) {
        this.usuario = usuario;
        this.totalatencion = totalatencion;
        this.mesa = mesa;
@@ -38,11 +36,11 @@ public class Atencion  implements java.io.Serializable {
        this.comandas = comandas;
     }
    
-    public int getIdatencion() {
+    public Integer getIdatencion() {
         return this.idatencion;
     }
     
-    public void setIdatencion(int idatencion) {
+    public void setIdatencion(Integer idatencion) {
         this.idatencion = idatencion;
     }
     public Usuario getUsuario() {

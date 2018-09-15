@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:22:47 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Producto  implements java.io.Serializable {
 
 
-     private int idproducto;
+     private Integer idproducto;
      private Subtipoproducto subtipoproducto;
      private Tipoproducto tipoproducto;
      private String nombreProducto;
@@ -23,16 +23,14 @@ public class Producto  implements java.io.Serializable {
     }
 
 	
-    public Producto(int idproducto, Subtipoproducto subtipoproducto, Tipoproducto tipoproducto, String nombreProducto, int precio, int stock) {
-        this.idproducto = idproducto;
+    public Producto(Subtipoproducto subtipoproducto, Tipoproducto tipoproducto, String nombreProducto, int precio, int stock) {
         this.subtipoproducto = subtipoproducto;
         this.tipoproducto = tipoproducto;
         this.nombreProducto = nombreProducto;
         this.precio = precio;
         this.stock = stock;
     }
-    public Producto(int idproducto, Subtipoproducto subtipoproducto, Tipoproducto tipoproducto, String nombreProducto, int precio, int stock, Set<ComandaProducto> comandaProductos) {
-       this.idproducto = idproducto;
+    public Producto(Subtipoproducto subtipoproducto, Tipoproducto tipoproducto, String nombreProducto, int precio, int stock, Set<ComandaProducto> comandaProductos) {
        this.subtipoproducto = subtipoproducto;
        this.tipoproducto = tipoproducto;
        this.nombreProducto = nombreProducto;
@@ -41,11 +39,11 @@ public class Producto  implements java.io.Serializable {
        this.comandaProductos = comandaProductos;
     }
    
-    public int getIdproducto() {
+    public Integer getIdproducto() {
         return this.idproducto;
     }
     
-    public void setIdproducto(int idproducto) {
+    public void setIdproducto(Integer idproducto) {
         this.idproducto = idproducto;
     }
     public Subtipoproducto getSubtipoproducto() {

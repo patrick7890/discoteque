@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:22:47 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Tipousuario  implements java.io.Serializable {
 
 
-     private int idtipoUsuario;
+     private Integer idtipoUsuario;
      private String descripciontipoU;
      private Set<Usuario> usuarios = new HashSet<Usuario>(0);
 
@@ -19,21 +19,19 @@ public class Tipousuario  implements java.io.Serializable {
     }
 
 	
-    public Tipousuario(int idtipoUsuario, String descripciontipoU) {
-        this.idtipoUsuario = idtipoUsuario;
+    public Tipousuario(String descripciontipoU) {
         this.descripciontipoU = descripciontipoU;
     }
-    public Tipousuario(int idtipoUsuario, String descripciontipoU, Set<Usuario> usuarios) {
-       this.idtipoUsuario = idtipoUsuario;
+    public Tipousuario(String descripciontipoU, Set<Usuario> usuarios) {
        this.descripciontipoU = descripciontipoU;
        this.usuarios = usuarios;
     }
    
-    public int getIdtipoUsuario() {
+    public Integer getIdtipoUsuario() {
         return this.idtipoUsuario;
     }
     
-    public void setIdtipoUsuario(int idtipoUsuario) {
+    public void setIdtipoUsuario(Integer idtipoUsuario) {
         this.idtipoUsuario = idtipoUsuario;
     }
     public String getDescripciontipoU() {

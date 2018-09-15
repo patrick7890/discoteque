@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:22:47 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Usuario  implements java.io.Serializable {
 
 
-     private int idusuario;
+     private Integer idusuario;
      private Tipousuario tipousuario;
      private String nombreusuario;
      private String passusuario;
@@ -22,15 +22,13 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(int idusuario, Tipousuario tipousuario, String nombreusuario, String passusuario, String cuentausuario) {
-        this.idusuario = idusuario;
+    public Usuario(Tipousuario tipousuario, String nombreusuario, String passusuario, String cuentausuario) {
         this.tipousuario = tipousuario;
         this.nombreusuario = nombreusuario;
         this.passusuario = passusuario;
         this.cuentausuario = cuentausuario;
     }
-    public Usuario(int idusuario, Tipousuario tipousuario, String nombreusuario, String passusuario, String cuentausuario, Set<Atencion> atencions) {
-       this.idusuario = idusuario;
+    public Usuario(Tipousuario tipousuario, String nombreusuario, String passusuario, String cuentausuario, Set<Atencion> atencions) {
        this.tipousuario = tipousuario;
        this.nombreusuario = nombreusuario;
        this.passusuario = passusuario;
@@ -38,11 +36,11 @@ public class Usuario  implements java.io.Serializable {
        this.atencions = atencions;
     }
    
-    public int getIdusuario() {
+    public Integer getIdusuario() {
         return this.idusuario;
     }
     
-    public void setIdusuario(int idusuario) {
+    public void setIdusuario(Integer idusuario) {
         this.idusuario = idusuario;
     }
     public Tipousuario getTipousuario() {

@@ -44,6 +44,7 @@ public class DAOProducto {
             pro.setPrecio(pr.getPrecio());
             pro.setStock(pr.getStock());
             pro.setTipoproducto(pr.getTipoproducto());
+            pro.setSubtipoproducto(pr.getSubtipoproducto());
             session.update(pro);
             tx.commit();
             session.close();
@@ -72,6 +73,19 @@ public class DAOProducto {
     public Producto buscar(Object nomProducto) {
         try {
             List<Producto> lista = session.createQuery("from Producto where idProducto='" + nomProducto + "'").list();
+            for (Producto ate : lista) {
+                return ate;
+            }
+        } catch (Exception e) {
+            tx.rollback();
+            session.close();
+            throw new RuntimeException("No se pudo buscar el Producto: " + e.getMessage());
+        }
+        return null;
+    }
+    public Producto buscarTipo(Object id) {
+        try {
+            List<Producto> lista = session.createQuery("from TipoProducto where idTipoProduto='" + id + "'").list();
             for (Producto ate : lista) {
                 return ate;
             }

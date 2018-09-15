@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15-09-2018 18:22:48 by Hibernate Tools 4.3.1 -->
+<!-- Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dto.ComandaProducto" table="comanda_producto" catalog="discoteque" optimistic-lock="version">
         <composite-id name="id" class="dto.ComandaProductoId">
-            <key-property name="productoIdproducto" type="int">
-                <column name="producto_idproducto" />
-            </key-property>
             <key-property name="comandaIdcomanda" type="int">
                 <column name="comanda_idcomanda" />
+            </key-property>
+            <key-property name="productoIdproducto" type="int">
+                <column name="producto_idproducto" />
             </key-property>
         </composite-id>
         <many-to-one name="comanda" class="dto.Comanda" update="false" insert="false" fetch="select">

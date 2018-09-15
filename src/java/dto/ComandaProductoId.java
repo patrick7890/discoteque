@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:22:47 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
 
 
 
@@ -9,30 +9,30 @@ package dto;
 public class ComandaProductoId  implements java.io.Serializable {
 
 
-     private int productoIdproducto;
      private int comandaIdcomanda;
+     private int productoIdproducto;
 
     public ComandaProductoId() {
     }
 
-    public ComandaProductoId(int productoIdproducto, int comandaIdcomanda) {
-       this.productoIdproducto = productoIdproducto;
+    public ComandaProductoId(int comandaIdcomanda, int productoIdproducto) {
        this.comandaIdcomanda = comandaIdcomanda;
+       this.productoIdproducto = productoIdproducto;
     }
    
-    public int getProductoIdproducto() {
-        return this.productoIdproducto;
-    }
-    
-    public void setProductoIdproducto(int productoIdproducto) {
-        this.productoIdproducto = productoIdproducto;
-    }
     public int getComandaIdcomanda() {
         return this.comandaIdcomanda;
     }
     
     public void setComandaIdcomanda(int comandaIdcomanda) {
         this.comandaIdcomanda = comandaIdcomanda;
+    }
+    public int getProductoIdproducto() {
+        return this.productoIdproducto;
+    }
+    
+    public void setProductoIdproducto(int productoIdproducto) {
+        this.productoIdproducto = productoIdproducto;
     }
 
 
@@ -42,15 +42,15 @@ public class ComandaProductoId  implements java.io.Serializable {
 		 if ( !(other instanceof ComandaProductoId) ) return false;
 		 ComandaProductoId castOther = ( ComandaProductoId ) other; 
          
-		 return (this.getProductoIdproducto()==castOther.getProductoIdproducto())
- && (this.getComandaIdcomanda()==castOther.getComandaIdcomanda());
+		 return (this.getComandaIdcomanda()==castOther.getComandaIdcomanda())
+ && (this.getProductoIdproducto()==castOther.getProductoIdproducto());
    }
    
    public int hashCode() {
          int result = 17;
          
-         result = 37 * result + this.getProductoIdproducto();
          result = 37 * result + this.getComandaIdcomanda();
+         result = 37 * result + this.getProductoIdproducto();
          return result;
    }   
 
