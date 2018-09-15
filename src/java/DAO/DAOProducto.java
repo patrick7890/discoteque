@@ -6,6 +6,8 @@
 package DAO;
 
 import dto.Producto;
+import dto.Subtipoproducto;
+import dto.Tipoproducto;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -72,9 +74,9 @@ public class DAOProducto {
 
     public Producto buscar(Object nomProducto) {
         try {
-            List<Producto> lista = session.createQuery("from Producto where idProducto='" + nomProducto + "'").list();
-            for (Producto ate : lista) {
-                return ate;
+            List<Producto> lista = session.createQuery("from Producto where idproducto='" + nomProducto + "'").list();
+            for (Producto pro : lista) {
+                return pro;
             }
         } catch (Exception e) {
             tx.rollback();
@@ -83,11 +85,24 @@ public class DAOProducto {
         }
         return null;
     }
-    public Producto buscarTipo(Object id) {
+    public Tipoproducto buscarTipo(Object id) {
         try {
-            List<Producto> lista = session.createQuery("from TipoProducto where idTipoProduto='" + id + "'").list();
-            for (Producto ate : lista) {
-                return ate;
+            List<Tipoproducto> lista = session.createQuery("from Tipoproducto where idtipoProducto='" + id + "'").list();
+            for (Tipoproducto tipo : lista) {
+                return tipo;
+            }
+        } catch (Exception e) {
+            tx.rollback();
+            session.close();
+            throw new RuntimeException("No se pudo buscar el Producto: " + e.getMessage());
+        }
+        return null;
+    }
+    public Subtipoproducto buscarSubTipo(Object id) {
+        try {
+            List<Subtipoproducto> lista = session.createQuery("from Subtipoproducto where idsubTipoProducto='" + id + "'").list();
+            for (Subtipoproducto subTipo : lista) {
+                return subTipo;
             }
         } catch (Exception e) {
             tx.rollback();

@@ -24,6 +24,7 @@ public class ProductoWS {
     @WebMethod(operationName = "IngresarProducto")
     public String IngresarProducto(@WebParam(name = "id") int id, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") int precio, @WebParam(name = "stock") int stock, @WebParam(name = "tipo") int tipo, @WebParam(name = "subtipo") int subtipo) {
         DAOProducto dao=new DAOProducto();
+        dao.
         Producto p =new Producto();
         return null;
     }
