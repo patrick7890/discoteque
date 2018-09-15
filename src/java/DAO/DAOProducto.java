@@ -15,6 +15,7 @@ import org.hibernate.Transaction;
  * @author Patricio
  */
 public class DAOProducto {
+
     private Session session;
     private Transaction tx;
 
@@ -22,8 +23,7 @@ public class DAOProducto {
         session = HibernateUtil.getSessionFactory().openSession();
         tx = session.beginTransaction();
     }
-    
-    
+
     public boolean agregar(Producto pr) {
         try {
             session.save(pr);
@@ -37,7 +37,6 @@ public class DAOProducto {
         }
     }
 
-    
     public boolean actualizar(Producto pr) {
         try {
             Producto pro = buscar(pr.getIdproducto());
@@ -56,7 +55,6 @@ public class DAOProducto {
         }
     }
 
-    
     public boolean eliminar(String o) {
         try {
             Producto ate = buscar(o);
@@ -71,11 +69,10 @@ public class DAOProducto {
         }
     }
 
-    
     public Producto buscar(Object nomProducto) {
         try {
-            List<Producto> lista = session.createQuery("from Producto where idProducto='"+nomProducto+"'").list();
-            for ( Producto ate : lista ) {
+            List<Producto> lista = session.createQuery("from Producto where idProducto='" + nomProducto + "'").list();
+            for (Producto ate : lista) {
                 return ate;
             }
         } catch (Exception e) {
@@ -85,7 +82,7 @@ public class DAOProducto {
         }
         return null;
     }
-    
+
     public List<Producto> listarTodo() {
         try {
             List<Producto> lista = session.createQuery("from Producto").list();
@@ -95,5 +92,13 @@ public class DAOProducto {
             session.close();
             throw new RuntimeException("No se pudo listar los Productos: " + e.getMessage());
         }
+    }
+
+    public String stock(int pr) {
+        Producto p = (Producto) session.get(Producto.class, pr);
+        if (p!=null) {
+            return "el producto es"+p.getNombreProducto()+"tiene "+p.getStock();
+        }
+        return "no se encontro el producto";
     }
 }

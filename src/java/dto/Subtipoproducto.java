@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 16:46:42 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 18:22:47 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,21 +12,24 @@ public class Subtipoproducto  implements java.io.Serializable {
 
 
      private int idsubTipoProducto;
+     private Tipoproducto tipoproducto;
      private String descripcionsubTipo;
-     private Set<Tipoproducto> tipoproductos = new HashSet<Tipoproducto>(0);
+     private Set<Producto> productos = new HashSet<Producto>(0);
 
     public Subtipoproducto() {
     }
 
 	
-    public Subtipoproducto(int idsubTipoProducto, String descripcionsubTipo) {
+    public Subtipoproducto(int idsubTipoProducto, Tipoproducto tipoproducto, String descripcionsubTipo) {
         this.idsubTipoProducto = idsubTipoProducto;
+        this.tipoproducto = tipoproducto;
         this.descripcionsubTipo = descripcionsubTipo;
     }
-    public Subtipoproducto(int idsubTipoProducto, String descripcionsubTipo, Set<Tipoproducto> tipoproductos) {
+    public Subtipoproducto(int idsubTipoProducto, Tipoproducto tipoproducto, String descripcionsubTipo, Set<Producto> productos) {
        this.idsubTipoProducto = idsubTipoProducto;
+       this.tipoproducto = tipoproducto;
        this.descripcionsubTipo = descripcionsubTipo;
-       this.tipoproductos = tipoproductos;
+       this.productos = productos;
     }
    
     public int getIdsubTipoProducto() {
@@ -36,6 +39,13 @@ public class Subtipoproducto  implements java.io.Serializable {
     public void setIdsubTipoProducto(int idsubTipoProducto) {
         this.idsubTipoProducto = idsubTipoProducto;
     }
+    public Tipoproducto getTipoproducto() {
+        return this.tipoproducto;
+    }
+    
+    public void setTipoproducto(Tipoproducto tipoproducto) {
+        this.tipoproducto = tipoproducto;
+    }
     public String getDescripcionsubTipo() {
         return this.descripcionsubTipo;
     }
@@ -43,12 +53,12 @@ public class Subtipoproducto  implements java.io.Serializable {
     public void setDescripcionsubTipo(String descripcionsubTipo) {
         this.descripcionsubTipo = descripcionsubTipo;
     }
-    public Set<Tipoproducto> getTipoproductos() {
-        return this.tipoproductos;
+    public Set<Producto> getProductos() {
+        return this.productos;
     }
     
-    public void setTipoproductos(Set<Tipoproducto> tipoproductos) {
-        this.tipoproductos = tipoproductos;
+    public void setProductos(Set<Producto> productos) {
+        this.productos = productos;
     }
 
 
