@@ -1,28 +1,39 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1 -->
+<!-- Generated 15-09-2018 21:02:12 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dto.Atencion" table="atencion" catalog="discoteque" optimistic-lock="version">
-        <id name="idatencion" type="java.lang.Integer">
-            <column name="idatencion" />
-            <generator class="identity" />
-        </id>
-        <many-to-one name="usuario" class="dto.Usuario" fetch="select">
+        <composite-id name="id" class="dto.AtencionId">
+            <key-property name="idatencion" type="int">
+                <column name="idatencion" />
+            </key-property>
+            <key-property name="usuarioIdusuario" type="int">
+                <column name="usuario_idusuario" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="tiposala" class="dto.Tiposala" fetch="select">
+            <column name="tipoSala_idtipoSala" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="dto.Usuario" update="false" insert="false" fetch="select">
             <column name="usuario_idusuario" not-null="true" />
         </many-to-one>
         <property name="totalatencion" type="int">
             <column name="totalatencion" not-null="true" />
         </property>
-        <property name="mesa" type="int">
-            <column name="mesa" not-null="true" />
-        </property>
         <property name="faturada" type="byte">
             <column name="faturada" not-null="true" />
+        </property>
+        <property name="propina" type="int">
+            <column name="propina" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" not-null="true" />
         </property>
         <set name="comandas" table="comanda" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="atencion_idatencion" not-null="true" />
+                <column name="atencion_usuario_idusuario" not-null="true" />
             </key>
             <one-to-many class="dto.Comanda" />
         </set>

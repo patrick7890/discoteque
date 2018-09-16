@@ -46,7 +46,7 @@ public class DAOProducto {
             pro.setPrecio(pr.getPrecio());
             pro.setStock(pr.getStock());
             pro.setTipoproducto(pr.getTipoproducto());
-            pro.setSubtipoproducto(pr.getSubtipoproducto());
+            pro.setSubtipoproducto(pr.get());
             session.update(pro);
             tx.commit();
             session.close();

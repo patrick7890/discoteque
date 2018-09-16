@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 21:02:12 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,23 +16,26 @@ public class Usuario  implements java.io.Serializable {
      private String nombreusuario;
      private String passusuario;
      private String cuentausuario;
+     private byte activo;
      private Set<Atencion> atencions = new HashSet<Atencion>(0);
 
     public Usuario() {
     }
 
 	
-    public Usuario(Tipousuario tipousuario, String nombreusuario, String passusuario, String cuentausuario) {
+    public Usuario(Tipousuario tipousuario, String nombreusuario, String passusuario, String cuentausuario, byte activo) {
         this.tipousuario = tipousuario;
         this.nombreusuario = nombreusuario;
         this.passusuario = passusuario;
         this.cuentausuario = cuentausuario;
+        this.activo = activo;
     }
-    public Usuario(Tipousuario tipousuario, String nombreusuario, String passusuario, String cuentausuario, Set<Atencion> atencions) {
+    public Usuario(Tipousuario tipousuario, String nombreusuario, String passusuario, String cuentausuario, byte activo, Set<Atencion> atencions) {
        this.tipousuario = tipousuario;
        this.nombreusuario = nombreusuario;
        this.passusuario = passusuario;
        this.cuentausuario = cuentausuario;
+       this.activo = activo;
        this.atencions = atencions;
     }
    
@@ -70,6 +73,13 @@ public class Usuario  implements java.io.Serializable {
     
     public void setCuentausuario(String cuentausuario) {
         this.cuentausuario = cuentausuario;
+    }
+    public byte getActivo() {
+        return this.activo;
+    }
+    
+    public void setActivo(byte activo) {
+        this.activo = activo;
     }
     public Set<Atencion> getAtencions() {
         return this.atencions;

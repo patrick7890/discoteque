@@ -1,7 +1,8 @@
 package dto;
-// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 21:02:12 by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,37 +12,52 @@ import java.util.Set;
 public class Atencion  implements java.io.Serializable {
 
 
-     private Integer idatencion;
+     private AtencionId id;
+     private Tiposala tiposala;
      private Usuario usuario;
      private int totalatencion;
-     private int mesa;
      private byte faturada;
+     private int propina;
+     private Date fecha;
      private Set<Comanda> comandas = new HashSet<Comanda>(0);
 
     public Atencion() {
     }
 
 	
-    public Atencion(Usuario usuario, int totalatencion, int mesa, byte faturada) {
+    public Atencion(AtencionId id, Tiposala tiposala, Usuario usuario, int totalatencion, byte faturada, int propina, Date fecha) {
+        this.id = id;
+        this.tiposala = tiposala;
         this.usuario = usuario;
         this.totalatencion = totalatencion;
-        this.mesa = mesa;
         this.faturada = faturada;
+        this.propina = propina;
+        this.fecha = fecha;
     }
-    public Atencion(Usuario usuario, int totalatencion, int mesa, byte faturada, Set<Comanda> comandas) {
+    public Atencion(AtencionId id, Tiposala tiposala, Usuario usuario, int totalatencion, byte faturada, int propina, Date fecha, Set<Comanda> comandas) {
+       this.id = id;
+       this.tiposala = tiposala;
        this.usuario = usuario;
        this.totalatencion = totalatencion;
-       this.mesa = mesa;
        this.faturada = faturada;
+       this.propina = propina;
+       this.fecha = fecha;
        this.comandas = comandas;
     }
    
-    public Integer getIdatencion() {
-        return this.idatencion;
+    public AtencionId getId() {
+        return this.id;
     }
     
-    public void setIdatencion(Integer idatencion) {
-        this.idatencion = idatencion;
+    public void setId(AtencionId id) {
+        this.id = id;
+    }
+    public Tiposala getTiposala() {
+        return this.tiposala;
+    }
+    
+    public void setTiposala(Tiposala tiposala) {
+        this.tiposala = tiposala;
     }
     public Usuario getUsuario() {
         return this.usuario;
@@ -57,19 +73,26 @@ public class Atencion  implements java.io.Serializable {
     public void setTotalatencion(int totalatencion) {
         this.totalatencion = totalatencion;
     }
-    public int getMesa() {
-        return this.mesa;
-    }
-    
-    public void setMesa(int mesa) {
-        this.mesa = mesa;
-    }
     public byte getFaturada() {
         return this.faturada;
     }
     
     public void setFaturada(byte faturada) {
         this.faturada = faturada;
+    }
+    public int getPropina() {
+        return this.propina;
+    }
+    
+    public void setPropina(int propina) {
+        this.propina = propina;
+    }
+    public Date getFecha() {
+        return this.fecha;
+    }
+    
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
     public Set<Comanda> getComandas() {
         return this.comandas;

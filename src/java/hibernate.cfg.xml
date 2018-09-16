@@ -52,7 +52,7 @@ Contributor(s):
     <mapping resource="dto/Tipousuario.hbm.xml"/>
     <mapping resource="dto/Producto.hbm.xml"/>
     <mapping resource="dto/Tipoproducto.hbm.xml"/>
-    <mapping resource="dto/Subtipoproducto.hbm.xml"/>
+    <mapping resource="dto/Tiposala.hbm.xml"/>
     <mapping resource="dto/ComandaProducto.hbm.xml"/>
     <mapping resource="dto/Atencion.hbm.xml"/>
     <mapping resource="dto/Comanda.hbm.xml"/>

@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 21:02:12 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,7 +14,6 @@ public class Tipoproducto  implements java.io.Serializable {
      private Integer idtipoProducto;
      private String descripcionTipoP;
      private Set<Producto> productos = new HashSet<Producto>(0);
-     private Set<Subtipoproducto> subtipoproductos = new HashSet<Subtipoproducto>(0);
 
     public Tipoproducto() {
     }
@@ -23,10 +22,9 @@ public class Tipoproducto  implements java.io.Serializable {
     public Tipoproducto(String descripcionTipoP) {
         this.descripcionTipoP = descripcionTipoP;
     }
-    public Tipoproducto(String descripcionTipoP, Set<Producto> productos, Set<Subtipoproducto> subtipoproductos) {
+    public Tipoproducto(String descripcionTipoP, Set<Producto> productos) {
        this.descripcionTipoP = descripcionTipoP;
        this.productos = productos;
-       this.subtipoproductos = subtipoproductos;
     }
    
     public Integer getIdtipoProducto() {
@@ -49,13 +47,6 @@ public class Tipoproducto  implements java.io.Serializable {
     
     public void setProductos(Set<Producto> productos) {
         this.productos = productos;
-    }
-    public Set<Subtipoproducto> getSubtipoproductos() {
-        return this.subtipoproductos;
-    }
-    
-    public void setSubtipoproductos(Set<Subtipoproducto> subtipoproductos) {
-        this.subtipoproductos = subtipoproductos;
     }
 
 

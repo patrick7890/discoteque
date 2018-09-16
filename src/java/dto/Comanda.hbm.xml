@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1 -->
+<!-- Generated 15-09-2018 21:02:12 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dto.Comanda" table="comanda" catalog="discoteque" optimistic-lock="version">
         <id name="idcomanda" type="java.lang.Integer">
@@ -10,6 +10,7 @@
         </id>
         <many-to-one name="atencion" class="dto.Atencion" fetch="select">
             <column name="atencion_idatencion" not-null="true" />
+            <column name="atencion_usuario_idusuario" not-null="true" />
         </many-to-one>
         <property name="totalcomanda" type="int">
             <column name="totalcomanda" not-null="true" />

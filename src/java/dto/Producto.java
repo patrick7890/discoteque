@@ -1,5 +1,5 @@
 package dto;
-// Generated 15-09-2018 18:43:32 by Hibernate Tools 4.3.1
+// Generated 15-09-2018 21:02:12 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,30 +12,30 @@ public class Producto  implements java.io.Serializable {
 
 
      private Integer idproducto;
-     private Subtipoproducto subtipoproducto;
      private Tipoproducto tipoproducto;
      private String nombreProducto;
      private int precio;
      private int stock;
+     private byte enVenta;
      private Set<ComandaProducto> comandaProductos = new HashSet<ComandaProducto>(0);
 
     public Producto() {
     }
 
 	
-    public Producto(Subtipoproducto subtipoproducto, Tipoproducto tipoproducto, String nombreProducto, int precio, int stock) {
-        this.subtipoproducto = subtipoproducto;
+    public Producto(Tipoproducto tipoproducto, String nombreProducto, int precio, int stock, byte enVenta) {
         this.tipoproducto = tipoproducto;
         this.nombreProducto = nombreProducto;
         this.precio = precio;
         this.stock = stock;
+        this.enVenta = enVenta;
     }
-    public Producto(Subtipoproducto subtipoproducto, Tipoproducto tipoproducto, String nombreProducto, int precio, int stock, Set<ComandaProducto> comandaProductos) {
-       this.subtipoproducto = subtipoproducto;
+    public Producto(Tipoproducto tipoproducto, String nombreProducto, int precio, int stock, byte enVenta, Set<ComandaProducto> comandaProductos) {
        this.tipoproducto = tipoproducto;
        this.nombreProducto = nombreProducto;
        this.precio = precio;
        this.stock = stock;
+       this.enVenta = enVenta;
        this.comandaProductos = comandaProductos;
     }
    
@@ -45,13 +45,6 @@ public class Producto  implements java.io.Serializable {
     
     public void setIdproducto(Integer idproducto) {
         this.idproducto = idproducto;
-    }
-    public Subtipoproducto getSubtipoproducto() {
-        return this.subtipoproducto;
-    }
-    
-    public void setSubtipoproducto(Subtipoproducto subtipoproducto) {
-        this.subtipoproducto = subtipoproducto;
     }
     public Tipoproducto getTipoproducto() {
         return this.tipoproducto;
@@ -80,6 +73,13 @@ public class Producto  implements java.io.Serializable {
     
     public void setStock(int stock) {
         this.stock = stock;
+    }
+    public byte getEnVenta() {
+        return this.enVenta;
+    }
+    
+    public void setEnVenta(byte enVenta) {
+        this.enVenta = enVenta;
     }
     public Set<ComandaProducto> getComandaProductos() {
         return this.comandaProductos;
