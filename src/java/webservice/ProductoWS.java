@@ -23,7 +23,7 @@ public class ProductoWS {
      * Web service operation
      */
     @WebMethod(operationName = "IngresarProducto")
-    public String IngresarProducto(@WebParam(name = "id") int id, @WebParam(name = "nombre") String nombre, @WebParam(name = "precio") int precio, @WebParam(name = "stock") int stock, @WebParam(name = "tipo") int tipo, @WebParam(name = "subtipo") int subtipo) {
+    public String IngresarProducto(@WebParam(name = "nombre") String nombre, @WebParam(name = "precio") int precio, @WebParam(name = "stock") int stock, @WebParam(name = "tipo") int tipo) {
         DAOProducto dao=new DAOProducto();
         Tipoproducto ti=dao.buscarTipo(tipo);
         byte esado=1;
