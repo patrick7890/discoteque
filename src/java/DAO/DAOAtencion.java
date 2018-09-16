@@ -40,7 +40,7 @@ public class DAOAtencion {
     
     public boolean actualizar(Atencion at) {
         try {
-            Atencion ate = buscar(at.getIdatencion());
+            Atencion ate = buscar(at.getId());
             ate.setUsuario(at.getUsuario());
             ate.setFaturada(at.getFaturada());
             ate.setTotalatencion(at.getTotalatencion());

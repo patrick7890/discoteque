@@ -6,7 +6,6 @@
 package DAO;
 
 import dto.Producto;
-import dto.Subtipoproducto;
 import dto.Tipoproducto;
 import java.util.List;
 import org.hibernate.Session;
@@ -45,8 +44,8 @@ public class DAOProducto {
             pro.setNombreProducto(pr.getNombreProducto());
             pro.setPrecio(pr.getPrecio());
             pro.setStock(pr.getStock());
+            pro.setEnVenta(pr.getEnVenta());
             pro.setTipoproducto(pr.getTipoproducto());
-            pro.setSubtipoproducto(pr.get());
             session.update(pro);
             tx.commit();
             session.close();
@@ -90,19 +89,6 @@ public class DAOProducto {
             List<Tipoproducto> lista = session.createQuery("from Tipoproducto where idtipoProducto='" + id + "'").list();
             for (Tipoproducto tipo : lista) {
                 return tipo;
-            }
-        } catch (Exception e) {
-            tx.rollback();
-            session.close();
-            throw new RuntimeException("No se pudo buscar el Producto: " + e.getMessage());
-        }
-        return null;
-    }
-    public Subtipoproducto buscarSubTipo(Object id) {
-        try {
-            List<Subtipoproducto> lista = session.createQuery("from Subtipoproducto where idsubTipoProducto='" + id + "'").list();
-            for (Subtipoproducto subTipo : lista) {
-                return subTipo;
             }
         } catch (Exception e) {
             tx.rollback();
