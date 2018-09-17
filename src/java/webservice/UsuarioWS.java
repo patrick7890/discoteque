@@ -6,6 +6,7 @@
 package webservice;
 
 import DAO.DAOUsuario;
+import dto.Usuario;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -21,9 +22,10 @@ public class UsuarioWS {
      * Web service operation
      */
     @WebMethod(operationName = "Login")
-    public Boolean Login(@WebParam(name = "Usuario") String Usuario, @WebParam(name = "password") String password) {
+    public Boolean Login(@WebParam(name = "user") String user, @WebParam(name = "password") String password) {
         DAOUsuario dao = new DAOUsuario();
-        return dao.login(Usuario, password) != null ? true : false;
+        Usuario u = dao.login(user, password);
+        return u != null ? true : false;
     }
 
 }

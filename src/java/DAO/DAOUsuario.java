@@ -26,7 +26,7 @@ public class DAOUsuario {
     
     public Usuario login(String user, String pass) {
         try {
-            List<Usuario> lista = session.createQuery("FROM Usuario where Correo_Usuario='" + user + "' and Pass_Usuario='" + pass + "'").list();
+            List<Usuario> lista = session.createQuery("FROM Usuario where cuentausuario='" + user + "' and passusuario='" + pass + "'").list();
             for (Usuario aux : lista) {
                 if (aux.getCuentausuario().equals(user) && aux.getPassusuario().equals(pass)) {
                     return aux;
