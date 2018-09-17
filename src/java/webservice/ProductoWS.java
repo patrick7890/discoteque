@@ -40,4 +40,25 @@ public class ProductoWS {
         Producto p=dao.buscar(id);
         return "el producto es "+p.getNombreProducto()+" su estock es de "+p.getStock();
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "eliminar")
+    public String eliminar(@WebParam(name = "id") int id) {
+        DAOProducto dao=new DAOProducto();
+        Producto p=dao.buscar(id);
+        byte estado=0;
+        p.setEnVenta(estado);
+        return dao.actualizar(p)?"actualizado":"no se pudo actualizar";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "Actualizar")
+    public String Actualizar() {
+        //TODO write your implementation code here:
+        return null;
+    }
 }
