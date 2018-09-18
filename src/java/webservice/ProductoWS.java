@@ -24,34 +24,34 @@ public class ProductoWS {
      * Web service operation
      */
     @WebMethod(operationName = "IngresarProducto")
-    public String IngresarProducto(@WebParam(name = "nombre") String nombre, @WebParam(name = "precio") int precio, @WebParam(name = "stock") int stock, @WebParam(name = "tipo") int tipo) {
-        DAOProducto dao=new DAOProducto();
-        Tipoproducto ti=dao.buscarTipo(tipo);
-        byte esado=1;
-        Producto p =new Producto(ti, nombre, precio, stock, esado);
-        return dao.agregar(p)?"agregado":"no se pudo agregar";
+    public Boolean IngresarProducto(@WebParam(name = "nombre") String nombre, @WebParam(name = "precio") int precio, @WebParam(name = "stock") int stock, @WebParam(name = "tipo") int tipo) {
+        DAOProducto dao = new DAOProducto();
+        Tipoproducto ti = dao.buscarTipo(tipo);
+        byte esado = 1;
+        Producto p = new Producto(ti, nombre, precio, stock, esado);
+        return dao.agregar(p);
     }
 
     /**
      * Web service operation
      */
     @WebMethod(operationName = "buscarProducto")
-    public String buscarProducto(@WebParam(name = "id") int id) {
-        DAOProducto dao=new DAOProducto();
-        Producto p=dao.buscar(id);
-        return "el producto es "+p.getNombreProducto()+" su estock es de "+p.getStock();
+    public Producto buscarProducto(@WebParam(name = "id") int id) {
+        DAOProducto dao = new DAOProducto();
+        Producto p = dao.buscar(id);
+        return p;
     }
 
     /**
      * Web service operation
      */
     @WebMethod(operationName = "eliminar")
-    public String eliminar(@WebParam(name = "id") int id) {
-        DAOProducto dao=new DAOProducto();
-        Producto p=dao.buscar(id);
-        byte estado=0;
+    public Boolean eliminar(@WebParam(name = "id") int id) {
+        DAOProducto dao = new DAOProducto();
+        Producto p = dao.buscar(id);
+        byte estado = 0;
         p.setEnVenta(estado);
-        return dao.actualizar(p)?"actualizado":"no se pudo actualizar";
+        return dao.actualizar(p);
     }
 
     /**
@@ -67,9 +67,14 @@ public class ProductoWS {
      * Web service operation
      */
     @WebMethod(operationName = "listar")
-    public List<Producto> listar() {
-        DAOProducto dao=new DAOProducto();
-        return dao.listarTodo();
+    public String listar() {
+        DAOProducto dao = new DAOProducto();
+        String lista = "";
+        for (Producto object : dao.listarTodo()) {
+            lista += object.getNombreProducto();
+        }
+
+        return lista;
     }
 
 }
