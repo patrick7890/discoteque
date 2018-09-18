@@ -8,6 +8,7 @@ package webservice;
 import DAO.DAOProducto;
 import dto.Producto;
 import dto.Tipoproducto;
+import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -61,4 +62,14 @@ public class ProductoWS {
         //TODO write your implementation code here:
         return null;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "listar")
+    public List<Producto> listar() {
+        DAOProducto dao=new DAOProducto();
+        return dao.listarTodo();
+    }
+
 }
