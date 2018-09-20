@@ -28,7 +28,7 @@ public class DAOUsuario {
         try {
             List<Usuario> lista = session.createQuery("FROM Usuario where cuentausuario='" + user + "' and passusuario='" + pass + "'").list();
             for (Usuario aux : lista) {
-                if (aux.getCuentausuario().equals(user) && aux.getPassusuario().equals(pass)) {
+                if (aux.getCuentausuario().equalsIgnoreCase(user) && aux.getPassusuario().equalsIgnoreCase(pass)) {
                     return aux;
                 }
             }
