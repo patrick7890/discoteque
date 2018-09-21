@@ -22,12 +22,13 @@ public class UsuarioWS {
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "Login")
+    @WebMethod(operationName = "idUsuario")
     public int idUsuario(@WebParam(name = "user") String user, @WebParam(name = "password") String password) {
         DAOUsuario dao = new DAOUsuario();
         Usuario u = dao.login(user, password);
         return u.getIdusuario();
     }
+    @WebMethod(operationName = "tipoUsuario")
     public int tipoUsuario(@WebParam(name = "user") String user, @WebParam(name = "password") String password) {
         DAOUsuario dao = new DAOUsuario();
         Usuario u = dao.login(user, password);
